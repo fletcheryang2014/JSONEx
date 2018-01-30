@@ -8,7 +8,7 @@
 
 #import "JSONEx.h"
 #import <objc/runtime.h>
-
+// 用静态字典存取类的arrayPropertyItemClasses方法的值，以避免函数调用，提高访问速度
 static NSDictionary* arrayPropertyClassForClass(Class cls) {
     if (!cls || ![cls respondsToSelector:@selector(arrayPropertyItemClasses)]) return nil;
     static CFMutableDictionaryRef cache;
@@ -37,7 +37,7 @@ static NSDictionary* arrayPropertyClassForClass(Class cls) {
     }
     return dic;
 }
-
+// 用静态字典存取类的customPropertyNameForKeys方法的值，以避免函数调用，提高访问速度
 static NSDictionary* customPropertyKeyForClass(Class cls) {
     if (!cls || ![cls respondsToSelector:@selector(customPropertyNameForKeys)]) return nil;
     static CFMutableDictionaryRef cache;
@@ -215,16 +215,16 @@ static NSSet *foundationClasses = nil;
         objc_property_t property = properties[i];
         const char* key = property_getName(property);
         NSString* strKey = [NSString stringWithCString:key encoding:NSUTF8StringEncoding];
-        id value = [self objectForKey:strKey];
+        id value = [self objectForKey:strKey];//从字典里按属性名获取value
         if (value == nil) {
-            //对象属性名和JSON关键词不一致的情况
+            //对象属性名和JSON关键词key不一致的情况，获取属性名对应的key
             NSString *jsonKey = [self getObjCustomPropertyKey:obj properyName:strKey];
             if (jsonKey != nil) {
-                value = [self objectForKey:jsonKey];
+                value = [self objectForKey:jsonKey];//再次从字典里获取value
             }
         }
         
-        Class propertyCls = [self getPropertyClass:property];
+        Class propertyCls = [self getPropertyClass:property];//获取属性的类
         if (propertyCls == nil || [self isFoundationClass:propertyCls]) {
             if(value != nil && value != (id)kCFNull) {
                 if (propertyCls == [NSURL class] && [value isKindOfClass:[NSString class]]) {
@@ -238,7 +238,7 @@ static NSSet *foundationClasses = nil;
                         [obj setValue:value forKey:strKey];
                     }
                 } else {
-                    [obj setValue:value forKey:strKey];
+                    [obj setValue:value forKey:strKey];//通过KVC给对象的属性赋值
                 }
             }
         } else {//自定义类型属性
