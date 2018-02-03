@@ -151,12 +151,14 @@ static NSDictionary* customPropertyKeyForClass(Class cls) {
                 char *p = strrchr(value + 2, '\"');
                 if (p) {
                     *p = '\0';
+                    free(attrs);
                     return objc_getClass(value + 2);
                 }
             }
             break;
         }
     }
+    free(attrs);
     return nil;
 }
 
