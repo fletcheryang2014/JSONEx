@@ -6,3 +6,5 @@ A light-weight library to map JSON string or dictionary to objective-c object.
 主要的转换都已支持，具体用法参见main.m。
 
 性能可用，优于MJExtension。
+
+https://juejin.im/post/5a75756a6fb9a0633611283b
