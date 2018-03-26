@@ -231,7 +231,7 @@ static NSSet *foundationClasses = nil;
             if(value != nil && value != (id)kCFNull) {
                 if (propertyCls == [NSURL class] && [value isKindOfClass:[NSString class]]) {
                     [obj setValue:[NSURL URLWithString:value] forKey:strKey];
-                } else if (propertyCls == [NSArray class] && [value isKindOfClass:[NSArray class]]) {
+                } else if ((propertyCls == [NSArray class] || propertyCls == [NSMutableArray class]) && [value isKindOfClass:[NSArray class]]) {
                     //数组属性里的元素是自定义类型
                     Class cls = [self getObjArrayPropertyClass:obj properyName:strKey];
                     if (cls) {
