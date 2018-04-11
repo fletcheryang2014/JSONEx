@@ -17,6 +17,7 @@
 		BE0A75F92019C19000146388 /* JSONEx.m in Sources */ = {isa = PBXBuildFile; fileRef = BE0A75F72019C18F00146388 /* JSONEx.m */; };
 		BE0A7604201ACBCC00146388 /* user.json in Resources */ = {isa = PBXBuildFile; fileRef = BE0A7602201ACBCC00146388 /* user.json */; };
 		BE0A7605201ACBCC00146388 /* GitHubUser.m in Sources */ = {isa = PBXBuildFile; fileRef = BE0A7603201ACBCC00146388 /* GitHubUser.m */; };
+		BEA3866F207CAE7D00609F05 /* SwiftJsonTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA3866E207CAE7D00609F05 /* SwiftJsonTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,8 @@
 		BE0A7601201ACBCC00146388 /* GitHubUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GitHubUser.h; sourceTree = "<group>"; };
 		BE0A7602201ACBCC00146388 /* user.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user.json; sourceTree = "<group>"; };
 		BE0A7603201ACBCC00146388 /* GitHubUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GitHubUser.m; sourceTree = "<group>"; };
+		BEA3866D207CAE7D00609F05 /* JSONEx-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JSONEx-Bridging-Header.h"; sourceTree = "<group>"; };
+		BEA3866E207CAE7D00609F05 /* SwiftJsonTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftJsonTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +95,8 @@
 				BE0A75EB2019C0D400146388 /* LaunchScreen.storyboard */,
 				BE0A75EE2019C0D400146388 /* Info.plist */,
 				BE0A75EF2019C0D400146388 /* main.m */,
+				BEA3866E207CAE7D00609F05 /* SwiftJsonTest.swift */,
+				BEA3866D207CAE7D00609F05 /* JSONEx-Bridging-Header.h */,
 			);
 			path = JSONEx;
 			sourceTree = "<group>";
@@ -158,6 +163,7 @@
 				TargetAttributes = {
 					BE0A75DC2019C0D400146388 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0930;
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -251,6 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE0A75E52019C0D400146388 /* ViewController.m in Sources */,
+				BEA3866F207CAE7D00609F05 /* SwiftJsonTest.swift in Sources */,
 				BE0A7605201ACBCC00146388 /* GitHubUser.m in Sources */,
 				BE0A75F02019C0D400146388 /* main.m in Sources */,
 				BE0A75F92019C19000146388 /* JSONEx.m in Sources */,
@@ -389,6 +396,7 @@
 			baseConfigurationReference = 63D2C68DEDCC8F96A284B389 /* Pods-JSONEx.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = K7MDP8Y272;
 				INFOPLIST_FILE = JSONEx/Info.plist;
@@ -397,6 +405,9 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "a0b197a1-dbd3-4fbf-893c-196dd942e2e7";
 				PROVISIONING_PROFILE_SPECIFIER = KKUniversal_Dev;
+				SWIFT_OBJC_BRIDGING_HEADER = "JSONEx/JSONEx-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -406,6 +417,7 @@
 			baseConfigurationReference = 5D4D0C9882C203D5B0920871 /* Pods-JSONEx.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = JSONEx/Info.plist;
@@ -413,6 +425,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.melot.JSONEx;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "JSONEx/JSONEx-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

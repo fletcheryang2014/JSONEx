@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "JSONEx.h"
 #import "GitHubUser.h"
+#import "JSONEx-Swift.h"
 
 @interface ClassA : NSObject
 @property (nonatomic, assign) int a;
@@ -139,7 +140,10 @@ int main(int argc, char * argv[]) {
 //        jsonStringToObj2();
 //        jsonStringToObj3();
 //        jsonStringToObj4();
-        testPerformance();
+//        testPerformance();
+//        [SwiftJsonTest jsonToModel1];
+//        [SwiftJsonTest jsonToModel2];
+        [SwiftJsonTest jsonToModel3];
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }
 }
